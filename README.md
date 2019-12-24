@@ -24,3 +24,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 ```
 
+But if you need another features like `MultiSerializerViewSet`, you need to
+add `django-tgb-basics` to `INSTALLED_APPS` in the `settings.py` file of your
+project.
+
+```
+INSTALLED_APPS = [
+    ...
+    'django-tgb-basics',
+    ...
+]
+```
