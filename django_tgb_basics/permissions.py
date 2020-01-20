@@ -31,14 +31,19 @@ class IsOwnerOrAdmin(BasePermission):
     Cualquier operación de acceso estará limitada a que el usuario que
     realiza la petición sea usuario administrador o que coincida con el valor
     del atributo ``user`` del objeto.
+
+    Este permiso comprueba el objeto que recibe, pudiendo ser un ``User``, un
+    objeto con la propiedad ``user`` o cualquiera otra cosa, en este caso
+    deberíamos devolver ``False`` como tratamiento de error.
     """
 
     def has_object_permission(self, request, view, obj):
-        logger.debug("Current user: %s", request.user)
-        logger.debug(
-            "Is current user authenticated?: %s", request.user.is_authenticated
-        )
-        logger.debug("Is current user an admin user?: %s", request.user.is_superuser)
+        if isinstance(obj, User):
+            user = obj
+        elif hasattr(obj, "user"):
+            user = obj.user
+        else:
+            return False
         return request.user.is_authenticated and (
-            obj.user == request.user or request.user.is_superuser
+            user == request.user or request.user.is_superuser
         )
