@@ -1,3 +1,6 @@
+from django.db import models
+
+
 class TimeStampedModel(models.Model):
     """
     Clase abstracta que proporciona campos de fecha de cración y modificación
