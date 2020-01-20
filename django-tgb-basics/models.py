@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.utils.translation import ugettext as _
+
 
 class TimeStampedModel(models.Model):
     """
@@ -7,14 +9,10 @@ class TimeStampedModel(models.Model):
     autogestionadas.
     """
 
-    #: Fecha y hora de creación
-    created = models.DateTimeField(
-        _("fecha creación"), auto_now_add=True, db_index=True
-    )
-    #: Fecha y hora de la última actualización
-    modified = models.DateTimeField(
-        _("fecha actualización"), auto_now=True, db_index=True
-    )
+    #: Date and time of creation
+    created = models.DateTimeField(_("created"), auto_now_add=True, db_index=True)
+    #: Date and time of the last update
+    modified = models.DateTimeField(_("modified"), auto_now=True, db_index=True)
 
     class Meta:
         get_latest_by = "modified"

@@ -12,7 +12,7 @@ class MultiSerializerViewSet(ViewSet):
 
     .. code:: python
 
-        from django-tgb-basics.viewsets import MultiSerializerViewSet
+        from django_tgb_basics.viewsets import MultiSerializerViewSet
         from .models import MyModel
         from .serializers import (
             BasicSerializer,

@@ -1,4 +1,4 @@
-# django-tgb-basics
+# django_tgb_basics
 
 This is a collection of useful (basic) features that I usually use in my
 Django Projects. I realize that I never use every feature in other libraries,
@@ -10,7 +10,7 @@ Install with your python package manager as usually you do.
 To install with pip:
 
 ```
-pip install django-tgb-basics
+pip install django_tgb_basics
 ```
 
 Once the package is installed you should edit your `settings.py` file
@@ -19,19 +19,19 @@ It's not necessary add to installed apps if you only need the auth backend.
 
 ```
 AUTHENTICATION_BACKENDS = [
-    'django-tgb-basics.backends.EmailAuthBackend',
+    'django_tgb_basics.backends.EmailAuthBackend',
     # Other authentications backends
 ]
 ```
 
 But if you need another features like `MultiSerializerViewSet`, you need to
-add `django-tgb-basics` to `INSTALLED_APPS` in the `settings.py` file of your
+add `django_tgb_basics` to `INSTALLED_APPS` in the `settings.py` file of your
 project.
 
 ```
 INSTALLED_APPS = [
     ...
-    'django-tgb-basics',
+    'django_tgb_basics',
     ...
 ]
 ```
