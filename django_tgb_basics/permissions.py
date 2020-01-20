@@ -5,9 +5,9 @@ aplicación.
 import logging
 
 from rest_framework.permissions import BasePermission
+from django.contrib.auth import get_user_model
 
-
-logger = logging.getLogger(__name__)
+User = get_user_model()
 
 
 class IsOwnerAdminOrReadOnly(BasePermission):
